@@ -6,18 +6,18 @@ using UnityEngine.UI;
 
 public class Tank : Basecontroller
 {
-    public float speed = 1f;
+    public float speed = 10f;
     public float rotatespeed = 50f;
 
     private void Update()
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(0f,0f, speed);
+            transform.Translate(0f,0f, speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(0f, 0f,  -speed);
+            transform.Translate(0f, 0f,  -speed* Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -28,6 +28,11 @@ public class Tank : Basecontroller
             transform.Rotate(0f, -rotatespeed * Time.deltaTime, 0f);
         }
         GetmousePosition();
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Fire();
+        }
     }
 
 
@@ -40,9 +45,11 @@ public class Tank : Basecontroller
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
         if (Physics.Raycast(ray,out hit))
         {
-            HeadtTransform.LookAt(hit.point);
+            Vector3 direction = new Vector3(hit.point.x, HeadtTransform.position.y, hit.point.z);
+            HeadtTransform.LookAt(direction);
         }
     }
 
