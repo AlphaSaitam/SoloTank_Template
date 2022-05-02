@@ -1366,7 +1366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3287087848143999475, guid: 01fb1086312535142960c9d0e5c31342, type: 3}
       propertyPath: speed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3287087848143999475, guid: 01fb1086312535142960c9d0e5c31342, type: 3}
       propertyPath: prefab
@@ -1377,8 +1377,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3287087848143999475, guid: 01fb1086312535142960c9d0e5c31342, type: 3}
+      propertyPath: rotatespeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3287087848143999475, guid: 01fb1086312535142960c9d0e5c31342, type: 3}
       propertyPath: speedbullet
-      value: 200
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3287087848143999475, guid: 01fb1086312535142960c9d0e5c31342, type: 3}
       propertyPath: HeadtTransform

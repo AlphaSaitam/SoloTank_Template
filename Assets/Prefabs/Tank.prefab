@@ -250,8 +250,11 @@ MonoBehaviour:
   HeadtTransform: {fileID: 0}
   ProjectileSpawnpoint: {fileID: 0}
   ProjectilePrefab: {fileID: 0}
+  prefab: {fileID: 0}
+  speedbullet: 100
   speed: 1
   rotatespeed: 50
+  movespeed: 50
 --- !u!23 &429646800725676596
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -640,6 +643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 429646801708134663}
   - component: {fileID: 3287087848143999475}
+  - component: {fileID: 6494010446421682993}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -677,8 +681,23 @@ MonoBehaviour:
   HeadtTransform: {fileID: 0}
   ProjectileSpawnpoint: {fileID: 0}
   ProjectilePrefab: {fileID: 0}
+  prefab: {fileID: 0}
+  speedbullet: 100
   speed: 0.01
   rotatespeed: 50
+  movespeed: 50
+--- !u!114 &6494010446421682993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429646801708134662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa393b9daf7817a46bba5a8ac1e9ae7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &429646801740561028
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,9 +775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf659054cb335c4b8ad6623ea21b357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5274158157397765374, guid: c32a8f2805f1ad04a951e8c649a66edc, type: 3}
-  Speedbullet: 100
-  bulletExit: {fileID: 0}
 --- !u!33 &429646801878194217
 MeshFilter:
   m_ObjectHideFlags: 0

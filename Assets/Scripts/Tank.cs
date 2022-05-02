@@ -7,38 +7,37 @@ using UnityEngine.UI;
 public class Tank : Basecontroller
 {
     public float speed = 10f;
-    public float rotatespeed = 50f;
+    public float rotatespeed = 5f;
+    public float movespeed = 5f;
+
+    private void OnEnable()
+    {
+        Custominputmanager.AButton += Fire;
+        Custominputmanager.HorizontalAxis += MoveTankHorizontal;
+        Custominputmanager.VerticalAxis += MoveTankVertical;
+    }
+
+    private void OnDisable()
+    {
+        Custominputmanager.AButton -= Fire;
+        Custominputmanager.HorizontalAxis -= MoveTankHorizontal;
+        Custominputmanager.VerticalAxis -= MoveTankVertical;
+    }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.Translate(0f,0f, speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.Translate(0f, 0f,  -speed* Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Rotate(0f, rotatespeed * Time.deltaTime, 0f);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Rotate(0f, -rotatespeed * Time.deltaTime, 0f);
-        }
         GetmousePosition();
-        
-        if (Input.GetMouseButtonDown(0))
-        {
-            Fire();
-        }
     }
 
 
-    private void MoveTank()
+    private void MoveTankHorizontal(float axisValue)
     {
-        
+       transform.Rotate(0,axisValue* rotatespeed,0);
+    }
+
+    private void MoveTankVertical(float axisValue)
+    {
+        transform.Translate(new Vector3(0,0,axisValue * movespeed));
     }
 
     private void GetmousePosition()
@@ -53,4 +52,5 @@ public class Tank : Basecontroller
         }
     }
 
+    
 }
