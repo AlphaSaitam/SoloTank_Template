@@ -3,14 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StatesSample
+{
+    None,
+    Fire,
+    
+}
 public class Tower : Basecontroller
 {
+    public StatesSample state = StatesSample.None;
+    public StatesSample nextstate = StatesSample.Fire;
+    public bool Detected = true;
+    
     public Transform TankTransform;
     public float detectionDistance;
     private bool _isTankDetected;
-    public float timeBeforeFire;
     private float _timer =2;
     private bool canShoot = true;
+
+    public void Start()
+    {
+        state = StatesSample.None;
+    }
 
     public void Update()
     {
@@ -29,11 +43,7 @@ public class Tower : Basecontroller
         {
             
             if (hit.collider.gameObject.GetComponentInParent<Tank>() != null)
-            {
-                //Fire();
-                Debug.DrawRay(HeadtTransform.position,direction,Color.red,1f);
-                Debug.Log("j'ai détecter ma cible");
-                
+            { 
                 gameObject.transform.LookAt(TankTransform.position);
 
                 if (canShoot == true)
@@ -51,12 +61,6 @@ public class Tower : Basecontroller
         Fire();
         yield return new WaitForSeconds(2);
         canShoot = true;
-
     }
     
-
-    private void FireTimer()
-    {
-        
-    }
 }
